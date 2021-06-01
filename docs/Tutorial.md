@@ -191,7 +191,7 @@ m1 = cepheus.mdgFiware()
 data = {
   'people': {'right': 0, 'left': 0},
   'car': {'right': 64, 'left': 46},
-  'truck': {'right': 150, 'left': 55},
+  'truck': {'right': 150,'left': 55},
   'bus': {'right': 23, 'left': 23},
   'motorcycle': {'right': 15, 'left': 1},
 }
