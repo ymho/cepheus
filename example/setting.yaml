@@ -1,0 +1,42 @@
+version: 2
+
+config:
+  client:
+    id: client_id
+    secret: client_secret
+  user:
+    username: user_name
+    password: password
+
+keys:
+  - people
+  - car
+  - truck
+  - bus
+  - motorcycle
+
+entity:
+  id: jp.nagoya-u.mdg.gifu.takayama.traffic.dev001
+  type: Traffic
+  service: gifu
+  servicepath: /gifu/takayama
+
+# nameは一度決めたら変更しないでください
+# valueはプログラム内で扱うJSONデータのkeyを設定してください
+
+attributes:
+  - name: people
+    type: json_array
+    value: people
+  - name: car
+    type: json_array
+    value: car
+  - name: truck
+    type: json_array
+    value: truck
+  - name: bus
+    type: json_array
+    value: bus
+  - name: motorcycle
+    type: json_array
+    value: motorcycle
