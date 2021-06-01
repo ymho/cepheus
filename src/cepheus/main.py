@@ -41,7 +41,7 @@ class mdgFiware:
 
 
   def __getAuthToken(self) -> str:
-    basic = base64.b64encode((self.cid+":"+self.cse).encode())
+    basic = base64.b64encode((self.__cid+":"+self.__cse).encode())
     headers_map = {
       "Content-Type": "application/x-www-form-urlencoded",
       "Authorization": "Basic " + basic.decode(),
