@@ -9,7 +9,7 @@ JSONをNGSIに整形してmdgのFIWAREにPOSTするツールです。JSONとNGSI
 `pip`コマンドでインストールできます。`pip3`であれば下記のように実行します。
 
 ```bash
-pip3 install -U git+https://github.com/mdg-nu/cepheus.git@ブランチ名
+pip3 install -U git+https://github.com/mdg-nu/cepheus.git@takayama
 ```
 
 ### もっともはやい手順
