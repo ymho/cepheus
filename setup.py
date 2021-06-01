@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='cepheus',
-    version="2020060100",
+    version="2020060101",
     author_email="y.omae@nagoya-u.jp",
     install_requires=[
         "requests",
