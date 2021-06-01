@@ -48,7 +48,7 @@ class mdgFiware:
       "Accept": "application/json"
     }
     try:
-      if self.__ymlVersion == '2':
+      if self.__ymlVersion == 2:
         data = "grant_type=password" + "&username=" + self.__username + "&password=" + self.__password
         res = requests.post(self.__token_url, data=data, headers=headers_map)
         res.raise_for_status()
