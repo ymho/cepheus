@@ -18,7 +18,7 @@ class mdgFiware:
       
       if id:
         self.__id = id
-       else:
+      else:
         self.__id = map['entity']['id']
         
       self.__type = map['entity']['type']
