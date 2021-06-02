@@ -12,10 +12,15 @@ Token_url = "https://libra.mdg.si.i.nagoya-u.ac.jp/oauth2/token"
 Orion_url = "https://virgo.mdg.si.i.nagoya-u.ac.jp/v2/entities"
 
 class mdgFiware:
-  def __init__(self) -> None:
+  def __init__(self, id=None) -> None:
     with open('setting.yaml', 'r') as yml:
       map = yaml.safe_load(yml)
-      self.__id = map['entity']['id']
+      
+      if id:
+        self.__id = id
+       else:
+        self.__id = map['entity']['id']
+        
       self.__type = map['entity']['type']
       self.__service = map['entity']['service']
       self.__servicepath = map['entity']['servicepath']
