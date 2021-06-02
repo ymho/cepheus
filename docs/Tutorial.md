@@ -10,9 +10,10 @@ import cepheus
 
 ## #2 インスタンスの生成
 
-まず，`mdgFiware()`でインスタンスを生成します。
+まず，`mdgFiware()`でインスタンスを生成します。**引数として，`id`を含めることができます。引数に`id`を指定すると`setting.yaml`に設定した`id`が上書きされます。これは，同一スクリプト内で複数のコンテキストを扱う場合に便利です。**
 ```python
-m1 = cepheus.mdgFiware()
+m1 = cepheus.mdgFiware()  #setting.yamlに従う場合
+m1 = cepheus.mdgFiware(id='<id>') # idを手動で設定する場合
 ```
 この時点で，FIWAREに送信に必要なパラメータがコンストラクタとして登録されています。確認したい場合は
 ```python
@@ -187,7 +188,7 @@ m1.sendData(json.dumps(data), '2021-05-10 14:08:00.016578+09:00')
 import cepheus
 import json
 
-m1 = cepheus.mdgFiware()
+m1 = cepheus.mdgFiware(id='jp.nagoya-u.mdg.gifu.takayama.traffic.dev001')
 data = {
   'people': {'right': 0, 'left': 0},
   'car': {'right': 64, 'left': 46},
