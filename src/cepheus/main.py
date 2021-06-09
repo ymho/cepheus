@@ -64,7 +64,7 @@ class mdgFiware:
     else:
       return res.json()["access_token"]
 
-  def sendData(self, raw, timestamp=None, console=True, debug=False) -> "res.status_code":
+  def sendData(self, raw, timestamp=None, console=True, debug=False) -> str:
     try: token = self.__getAuthToken()
     except Exception as e:
       print(e)
@@ -119,7 +119,7 @@ class mdgFiware:
       return res.status_code
 
 
-  def getData(self, console=True) -> Dict:
+  def getData(self, console=True) -> dict:
     token = self.__getAuthToken()
     if console: print("データをFIWAREから取得します...")
     try:
