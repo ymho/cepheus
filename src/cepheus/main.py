@@ -64,7 +64,7 @@ class mdgFiware:
     else:
       return res.json()["access_token"]
 
-  def sendData(self, raw, timestamp=None, console=True, debug=False) -> res.status_code:
+  def sendData(self, raw, timestamp=None, console=True, debug=False) -> "res.status_code":
     try: token = self.__getAuthToken()
     except Exception as e:
       print(e)
