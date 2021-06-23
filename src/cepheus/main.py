@@ -12,10 +12,15 @@ Token_url = "https://libra.mdg.si.i.nagoya-u.ac.jp/oauth2/token"
 Orion_url = "https://virgo.mdg.si.i.nagoya-u.ac.jp/v2/entities"
 
 class mdgFiware:
-  def __init__(self) -> None:
+  def __init__(self, id=None) -> None:
     with open('setting.yaml', 'r') as yml:
       map = yaml.safe_load(yml)
-      self.__id = map['entity']['id']
+      
+      if id:
+        self.__id = id
+      else:
+        self.__id = map['entity']['id']
+        
       self.__type = map['entity']['type']
       self.__service = map['entity']['service']
       self.__servicepath = map['entity']['servicepath']
@@ -59,7 +64,7 @@ class mdgFiware:
     else:
       return res.json()["access_token"]
 
-  def sendData(self, raw, timestamp=None, console=True, debug=False) -> None:
+  def sendData(self, raw, timestamp=None, console=True, debug=False) -> str:
     try: token = self.__getAuthToken()
     except Exception as e:
       print(e)
@@ -114,7 +119,7 @@ class mdgFiware:
       return res.status_code
 
 
-  def getData(self, console=True) -> None:
+  def getData(self, console=True) -> dict:
     token = self.__getAuthToken()
     if console: print("データをFIWAREから取得します...")
     try:
@@ -130,7 +135,9 @@ class mdgFiware:
       print('FIWAREからデータの取得中にエラーが発生しました。')
     else:
       if console: print("成功しました。データを表示します。")
-      print(json.dumps(res.json(), indent=2))
+      res = json.dumps(res.json(), indent=2)
+      print(res)
+      return res
 
 
 if __name__ == '__main__':
