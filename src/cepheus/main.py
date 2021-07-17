@@ -118,16 +118,19 @@ class mdgFiware:
       return res.status_code
 
 
-  def getData(self, console=True) -> None:
+  def getData(self, id=None, console=True) -> None:
     token = self.__getAuthToken()
     if console: print("データをFIWAREから取得します...")
+    url = self.__orion_url
+    if id:
+      url = url + '/' + id
     try:
       headers_map = {
         "X-Auth-Token": token,
         "fiware-service": self.__service,
         "fiware-servicepath": self.__servicepath
       }
-      res = requests.get(self.__orion_url, headers=headers_map)
+      res = requests.get(url, headers=headers_map)
       res.raise_for_status()
     except Exception as e:
       print(e)
