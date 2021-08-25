@@ -13,7 +13,7 @@ Orion_url = "https://virgo.mdg.si.i.nagoya-u.ac.jp/v2/entities"
 
 class mdgFiware:
   def __init__(self, id=None) -> None:
-    with open('setting.yaml', 'r') as yml:
+    with open('/setting.yaml', 'r') as yml:
       map = yaml.safe_load(yml)
       
       if id:
